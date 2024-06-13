@@ -8,7 +8,7 @@ import gulpSass from "gulp-sass";
 const sass = gulpSass(dartSass);
 
 export const scss = () => {
-    return app.gulp.src(app.path.scss.src, { sourcemap: true })
+    return app.gulp.src(app.path.scss.src, { sourcemap: app.isDev })
     .pipe(app.plugins.plumber({
         errorHandler: app.plugins.notify.onError(error => ({
             title: "SCSS",
@@ -19,8 +19,8 @@ export const scss = () => {
     .pipe(autoPrefixer())
     .pipe(shorthand())
     .pipe(groupCssMediaQueries())
-    .pipe(app.gulp.dest(app.path.scss.build, { sourcemap: true }))
+    .pipe(app.gulp.dest(app.path.scss.build, { sourcemap: app.isDev }))
     .pipe(rename({ suffix: ".min" }))
     .pipe(csso())
-    .pipe(app.gulp.dest(app.path.scss.build, { sourcemap: true }));
+    .pipe(app.gulp.dest(app.path.scss.build, { sourcemap: app.isDev }));
 }

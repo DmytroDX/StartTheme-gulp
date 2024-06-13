@@ -2,7 +2,7 @@ import babel from "gulp-babel";
 import webpack from "webpack-stream";
 
 export const js = () => {
-    return app.gulp.src(app.path.js.src, { sourcemap: true })
+    return app.gulp.src(app.path.js.src, { sourcemap: app.isDev })
     .pipe(app.plugins.plumber({
         errorHandler: app.plugins.notify.onError(error => ({
             title: "JS",
@@ -11,7 +11,7 @@ export const js = () => {
     }))
     .pipe(babel())
     .pipe(webpack({
-        mode: "development"
+        mode: app.isProd ? "production" : "development"
     }))
-    .pipe(app.gulp.dest(app.path.js.build, { sourcemap: true }));
+    .pipe(app.gulp.dest(app.path.js.build, { sourcemap: app.isDev }));
 }

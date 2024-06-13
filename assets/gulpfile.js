@@ -10,6 +10,8 @@ global.app = {
     gulp: gulp,
     plugins: plugins,
     path: path,
+    isProd: process.argv.includes("--production"),
+    isDev: !process.argv.includes("--production"),
 }
 
 // Імпорт завдань
