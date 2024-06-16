@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TRAINEE_ONE;
+namespace BASIC_NAMESPACE;
 
 class Theme_Setup
 {
