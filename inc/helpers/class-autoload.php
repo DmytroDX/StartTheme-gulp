@@ -1,7 +1,7 @@
 <?php
 
 spl_autoload_register( function ( $class ) {
-    if (str_contains($class, BASIC_NAMESPACE)) {
+    if (str_contains($class, 'THEME_NAMESPACE')) {
         $basePath = 'inc/classes/';
 
         if( str_contains($class, 'Singleton') ) {

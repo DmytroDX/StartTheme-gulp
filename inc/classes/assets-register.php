@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace BASIC_NAMESPACE;
+namespace THEME_NAMESPACE;
 
 class Assets_Register
 {

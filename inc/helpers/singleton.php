@@ -2,19 +2,20 @@
 
 declare(strict_types=1);
 
-namespace BASIC_NAMESPACE;
+namespace THEME_NAMESPACE;
 
 trait Singleton
 {
-    static private $instance = null;
+    private static $instance = null;
 
-    static public function get_instance() : static {
-        if (static::$instance !== null) {
-            return static::$instance;
+    public static function get_instance() {
+        if (self::$instance !== null) {
+            return self::$instance;
         }
 
-        static::$instance = new (get_called_class());
+        $calledClass = get_called_class();
+        self::$instance = new $calledClass();
 
-        return static::$instance;
+        return self::$instance;
     }
 }

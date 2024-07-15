@@ -9,11 +9,7 @@ if ( !defined('TEMPLATE_DIRECTORY_URI') ) {
     define('TEMPLATE_DIRECTORY_URI', get_template_directory_uri() . '/');
 }
 
-if ( !defined( 'BASIC_NAMESPACE' )) {
-    define( 'BASIC_NAMESPACE', 'TRAINEE_ONE' );
-}
-
 // Підключення файлу з функцією автоматичного підключення файлів із класами.
 require_once('inc/helpers/class-autoload.php');
 
-TRAINEE_ONE\Theme_Setup::get_instance();
+THEME_NAMESPACE\Theme_Setup::get_instance();
